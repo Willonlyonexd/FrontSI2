@@ -1,0 +1,46 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="flex justify-between mb-4">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+       Grupos
+    </h2>
+    <a [routerLink]="['/grupo/crear']" class="btngray">Crear</a>
+  </div>
+  <div class="relative overflow-x-auto rounded-lg">
+    <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+  >
+      <thead
+      class="text-xs text-gray-700 uppercase bg-custom-blue-gray-500 dark:bg-gray-700 dark:text-gray-400"
+    >
+        <tr>
+          <th scope="col" class="px-6 py-3">ID</th>
+          <th scope="col" class="px-6 py-3">Sigla</th>
+          <th scope="col" class="px-6 py-3 text-center"> Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let grupo of grupos"
+          class="bg-custom-blue-gray-200 border-b border-white dark:bg-gray-800 dark:border-gray-700"
+      >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            {{ grupo.id }}
+          </th>
+          <td class="px-6 py-4">
+            {{ grupo.sigla }}
+          </td>
+          <td class="px-6 py-4 text-center">
+            <a
+              [routerLink]="['/grupo/editar', grupo.id]"
+              class="font-medium text-blue-700 dark:text-blue-700 hover:underline"
+              > Edit</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
